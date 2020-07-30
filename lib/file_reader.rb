@@ -1,5 +1,5 @@
 class FileReader
-  def read
+  def read(file_name)
     filename = ARGV[0]
     File.read(filename)
   end

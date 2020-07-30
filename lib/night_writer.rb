@@ -1,10 +1,13 @@
 require "./lib/file_reader"
 class NightWriter
-  attr_reader :file_reader
+  attr_reader :reader
 
   def initialize
     @reader = FileReader.new
-    puts "Created '#{ARGV[1]}' containing 256 characters"
+  end
+
+  def created
+    "Created '#{ARGV[1]}' containing #{@reader.read('message.txt').length} characters"
   end
 
   def encode_file_to_braille
@@ -24,4 +27,5 @@ end
 # puts ARGV.inspect
 # ARGV.replace
 
-night_writer = NightWriter.new
+# night_writer = NightWriter.new
+# p night_writer.created
