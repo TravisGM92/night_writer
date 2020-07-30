@@ -2,16 +2,18 @@ require "simplecov"
 SimpleCov.start
 require "minitest/autorun"
 require "minitest/pride"
-require_relative "../lib/night_writer"
+require "./lib/night_writer"
 
 class NightWrtierTest < MiniTest::Test
 
-  def test_it_prints_to_terminal
-    skip
-    file = File.open("./lib/night_writer.rb")
+  def test_it_exists
+    night_writer = NightWriter.new
 
-    expected = "puts \"Created 'braille.txt' containing 256 characters"
+    assert_instance_of NightWriter, night_writer
+  end
 
-    assert_equal expected, File.read(file)
+  def test_it_can_print_to_terminal
+
+    assert_equal 3, ARGV.replace(NightWriter.new)
   end
 end
