@@ -18,8 +18,8 @@ class NightWriter
   end
 
   def encode_to_braille(input)
-    ARGV[1] = @reader.read(input)
-    ARGV[1]
+    output = File. new('braille.txt', 'w')
+    output.write(@reader.read(input))
   end
 end
 

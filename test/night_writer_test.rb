@@ -24,6 +24,6 @@ class NightWrtierTest < MiniTest::Test
     ARGV.replace ['message.txt', 'braille.txt']
     night_writer = NightWriter.new
 
-    assert_equal 2, night_writer.encode_to_braille('message.txt')
+    assert_equal 256, night_writer.encode_to_braille('message.txt')
   end
 end
