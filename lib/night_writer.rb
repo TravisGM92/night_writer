@@ -13,8 +13,8 @@ class NightWriter
   def encode_file_to_braille
     # I wouldn't worry about testing this method
     # unless you get everything else done
-    plain = reader.read
-    braille = encode_to_braille(plain)
+    # plain = reader.read
+    # braille = encode_to_braille(plain)
   end
 
   def encode_to_braille(input)
