@@ -1,8 +1,9 @@
 require './lib/english_to_binary'
 class Cell
 
-  attr_reader :binary, :top_row, :middle_row, :bottom_row,
-              :message
+  attr_reader :binary, :dot_1, :dot_2, :dot_3, :dot_4,
+              :dot_5, :dot_6, :message
+
   def initialize(message)
     @binary = EnglishToBinary.new(message)
     @dot_1 = "."
@@ -11,9 +12,6 @@ class Cell
     @dot_4 = "."
     @dot_5 = "."
     @dot_6 = "."
-    @top_row = top_row
-    @middle_row = middle_row
-    @bottom_row = bottom_row
     @message = message
   end
 
