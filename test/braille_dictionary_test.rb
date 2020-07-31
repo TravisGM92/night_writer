@@ -6,18 +6,19 @@ require "./lib/night_writer"
 require "./lib/braille_dictionary"
 
 
-class BrailleDictionaryTest < MiniTest::Test
+class EnglishToBinaryTest < MiniTest::Test
 
   def test_it_exists
-    dictionary = Braille.new
+    encoding = EnglishToBinary.new
 
-    assert_instance_of Braille, dictionary
+    assert_instance_of EnglishToBinary, encoding
   end
 
-  def test_it_can
-    dictionary = Braille.new
+  def test_if_dictionary_works
+    encoding = EnglishToBinary.new
+    encoding.dictionary
 
-    assert_equal "1100001", dictionary.english_to_braille('a')
+    assert_equal "10111", encoding.encoding['w']
   end
 end
 
