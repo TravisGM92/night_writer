@@ -1,11 +1,13 @@
 class EnglishToBinary
 
-  attr_reader :lower_case, :upper_case, :encoding, :number_of_words
-  def initialize
+  attr_reader :lower_case, :upper_case, :encoding, :number_of_chars,
+              :message
+  def initialize(message)
     @lower_case = ('a'..'z').to_a
     @upper_case = ('A'..'Z').to_a
     @encoding = {}
-    @number_of_words = 0
+    @number_of_chars = number_of_chars
+    @message = message
   end
 
   def dictionary
@@ -41,10 +43,11 @@ class EnglishToBinary
     @encoding
   end
 
-  def encode_to_binary(message)
-    @number_of_words = message.split(" ").length
+  def encode_to_binary
+    self.dictionary
+    @number_of_chars = message.chars.length
     message.chars.map do |letter|
-      @encoding[letter]
+      encoding[letter]
     end
   end
 

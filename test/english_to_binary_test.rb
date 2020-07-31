@@ -9,22 +9,25 @@ require "./lib/english_to_binary"
 class EnglishToBinaryTest < MiniTest::Test
 
   def test_it_exists
-    encoding = EnglishToBinary.new
+    encoding = EnglishToBinary.new('hello')
 
     assert_instance_of EnglishToBinary, encoding
   end
 
   def test_if_dictionary_can_take_letter
-    encoding = EnglishToBinary.new
+    # skip
+    encoding = EnglishToBinary.new('h')
     encoding.dictionary
 
-    assert_equal "010111", encoding.encoding['w']
+    assert_equal "110010", encoding.encoding['h']
   end
 
   def test_if_dictionary_can_take_word
-    encoding = EnglishToBinary.new
+    # skip
+    encoding = EnglishToBinary.new('hello')
     encoding.dictionary
+    expected = ["110010", "100010", "111000", "111000", "101010"]
 
-    assert_equal 2, encoding.encode('hello')
+    assert_equal expected, encoding.encode_to_binary
   end
 end
