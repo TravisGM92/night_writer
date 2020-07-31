@@ -3,7 +3,7 @@ SimpleCov.start
 require "minitest/autorun"
 require "minitest/pride"
 require "./lib/night_writer"
-require "./lib/braille_dictionary"
+require "./lib/english_to_binary"
 
 
 class EnglishToBinaryTest < MiniTest::Test
@@ -18,7 +18,7 @@ class EnglishToBinaryTest < MiniTest::Test
     encoding = EnglishToBinary.new
     encoding.dictionary
 
-    assert_equal "10111", encoding.encoding['w']
+    assert_equal "010111", encoding.encoding['w']
   end
 end
 
