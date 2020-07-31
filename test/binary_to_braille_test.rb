@@ -16,13 +16,12 @@ class BinaryToBrailleTest < MiniTest::Test
     assert_instance_of BinaryToBraille, encode
   end
 
-  def test_it_can
+  def test_it_can_show
     # skip
     message = 'a'
+    encoding = EnglishToBinary.new(message)
     encode = BinaryToBraille.new(message)
     # dictionary.encode_to_binary(message)
-    # cells.binary
-
-    assert_equal 1, encode.show_braille_text
+    assert_equal "0. ", encode.cells.top_row
   end
 end

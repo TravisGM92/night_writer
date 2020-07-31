@@ -45,7 +45,7 @@ class EnglishToBinary
 
   def encode_to_binary
     self.dictionary
-    @number_of_chars = message.chars.length
+    numbers = @number_of_chars = message.chars.length
     message.chars.map do |letter|
       encoding[letter]
     end

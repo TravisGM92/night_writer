@@ -5,9 +5,9 @@ class BinaryToBraille
 
   attr_reader :cells, :message
 
-  def initialize(message)
+  def initialize(numbers)
     # @binary = EnglishToBinary.new
-    @cells = Cell.new(message)
+    @cells = Cell.new(numbers)
     @message = message
   end
 
