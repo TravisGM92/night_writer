@@ -17,20 +17,21 @@ class BinaryToBrailleTest < MiniTest::Test
   end
 
   def test_it_can_recieve_binary_message
-    skip
+    # skip
     encode = BinaryToBraille.new
 
     message = encode.binary.encode_to_binary('hello')
 
-    assert_equal Array, encode.to_braille(message).class
+    assert_equal String, encode.to_braille(message).class
   end
 
   def test_it_can_render_braille_cell
+    skip
     encode = BinaryToBraille.new
 
-    message = encode.binary.encode_to_binary('hello')
+    message = encode.binary.encode_to_binary('a')
     expected = "\n..\n..\n..\n"
-    assert_equal expected, encode.render_braille_cell
+    assert_equal expected, encode.render_braille_cell(message)
   end
 
   def test_it_can_recognize_how_many_words
@@ -40,15 +41,5 @@ class BinaryToBrailleTest < MiniTest::Test
     assert_equal 1, encode.binary.number_of_words
     message = encode.binary.encode_to_binary('hello there')
     assert_equal 2, encode.binary.number_of_words
-  end
-
-  def test_it_can_encode_to_braille
-    skip
-    encode = BinaryToBraille.new
-
-    message = encode.binary.encode_to_binary('hello')
-    encode.to_braille(message)
-    expected = 2
-    assert_equal expected, encode.render_braille_cell
   end
 end
