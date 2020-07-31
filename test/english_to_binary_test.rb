@@ -20,4 +20,11 @@ class EnglishToBinaryTest < MiniTest::Test
 
     assert_equal "010111", encoding.encoding['w']
   end
+
+  def test_if_dictionary_can_take_sentences
+    encoding = EnglishToBinary.new
+    encoding.dictionary
+
+    assert_equal 2, encoding.encode['hello']
+  end
 end
