@@ -39,7 +39,7 @@ class BinaryToBrailleTest < MiniTest::Test
     encode.cells.top_row_binary_to_braille(message)
 
     assert_equal "0", encode.cells.dot_1
-    assert_equal "0", encode.cells.dot_4
+    assert_equal ".", encode.cells.dot_4
   end
 
   def test_it_can_show_a_middle_row
@@ -64,7 +64,7 @@ class BinaryToBrailleTest < MiniTest::Test
     encode.cells
     encode.cells.middle_row_binary_to_braille(message)
 
-    assert_equal ".", encode.cells.dot_2
+    assert_equal "0", encode.cells.dot_2
     assert_equal ".", encode.cells.dot_5
   end
 

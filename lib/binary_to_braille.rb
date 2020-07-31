@@ -15,8 +15,8 @@ class BinaryToBraille
   end
 end
 
-# message = 'travis'
-# encoding = EnglishToBinary.new(message)
-# encode = BinaryToBraille.new(message)
-#
-# p encode.cells.all_rows
+message = 'kiah'
+encoding = EnglishToBinary.new(message)
+encode = BinaryToBraille.new(message)
+
+encode.cells.all_rows
