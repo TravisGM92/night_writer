@@ -13,4 +13,10 @@ class BrailleDictionaryTest < MiniTest::Test
 
     assert_instance_of Braille, dictionary
   end
+
+  def test_it_can_print_alphabet
+    dictionary = Braille.new
+
+    assert_equal 3, dictionary.lower_case
+  end
 end
