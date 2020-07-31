@@ -26,6 +26,6 @@ class EnglishToBinaryTest < MiniTest::Test
     encoding.dictionary
 
     expected = ["110010", "100010", "111000", "111000", "101010"]
-    assert_equal expected, encoding.encode('hello')
+    assert_equal expected, encoding.encode_to_binary('hello')
   end
 end

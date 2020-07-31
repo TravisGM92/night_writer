@@ -40,7 +40,7 @@ class EnglishToBinary
     @encoding
   end
 
-  def encode(message)
+  def encode_to_binary(message)
     message.chars.map do |letter|
       @encoding[letter]
     end
