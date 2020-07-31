@@ -14,13 +14,20 @@ class BrailleDictionaryTest < MiniTest::Test
     assert_instance_of Braille, dictionary
   end
 
-  def test_it_can_print_alphabet
+  def test_it_can
     dictionary = Braille.new
 
-    expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-    assert_equal expected, dictionary.lower_case
-    expected = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    assert_equal expected, dictionary.upper_case
-
+    assert_equal "1100001", dictionary.english_to_braille('a')
   end
 end
+
+# 1 => 100000
+# 1,2 => 110000
+# 1,4 => 100100
+# 1,4,5 => 100110
+# 1,5 => 100010
+# 1,2,4 => 110100
+# 1,2,4,5 => 110110
+# 1,2,5 => 110010
+# 2,4 => 010100
+# 2,4,5 => 010110

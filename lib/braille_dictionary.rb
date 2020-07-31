@@ -6,4 +6,8 @@ class Braille
     @upper_case = ('A'..'Z').to_a
   end
 
+  def english_to_braille(message)
+    message
+  end
+
 end
