@@ -23,4 +23,12 @@ class BinaryToBrailleTest < MiniTest::Test
     expected = ["110010", "100010", "111000", "111000", "101010"]
     assert_equal expected, encode.to_braille(message)
   end
+
+  def test_it_can_encode_to_braille
+    encode = BinaryToBraille.new
+
+    message = encode.binary.encode_to_binary('hello')
+    expected = 2
+    assert_equal expected, encode.to_braille(message)
+  end
 end
