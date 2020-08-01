@@ -7,7 +7,7 @@ require "./lib/night_writer"
 class NightWrtierTest < MiniTest::Test
 
   def test_it_exists
-    ARGV.replace ['message.txt', './lib/braille.txt']
+    # ARGV.replace('message.txt')
     night_writer = NightWriter.new
 
     assert_instance_of NightWriter, night_writer
