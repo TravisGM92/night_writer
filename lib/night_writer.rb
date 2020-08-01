@@ -1,10 +1,11 @@
+require './lib/file_reader'
 class NightWriter
   attr_reader :reader, :output_file, :input_file
 
   def initialize
     @reader = FileReader.new
-    @input_file = ARGV[1]
-    @outnput_file = ARGV[2]
+    @input_file = ARGV[0]
+    @outnput_file = ARGV[1]
   end
 
   def created
@@ -35,5 +36,5 @@ end
 # ARGV.replace
 
 night_writer = NightWriter.new
-night_writer.encode_to_braille
+night_writer.created
 # night_writer.new_file_with_braille
