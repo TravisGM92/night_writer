@@ -9,7 +9,7 @@ class NightWriter
   end
 
   def created
-    print "Created '#{@input_file}' containing #{@reader.read(@input_file).length} characters"
+    "Created '#{@input_file}' containing #{@reader.read(@input_file).length} characters"
   end
 
   def encode_file_to_braille
