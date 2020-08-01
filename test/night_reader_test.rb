@@ -10,9 +10,18 @@ class NightReaderTest < MiniTest::Test
 
   def test_it_exists
     # skip
-    # ARGV.replace('message.txt')
     night_reader = NightReader.new
 
     assert_instance_of NightReader, night_reader
+  end
+
+  def test_it_inherit_from_night_writer
+    # skip
+    ARGV.replace(['input.txt', 'test.txt'])
+
+    @reader = FileReader.new
+    night_reader = NightReader.new
+    expected = "Created 'input.txt' containing 2 characters"
+    assert_equal expected, night_reader.created
   end
 end
