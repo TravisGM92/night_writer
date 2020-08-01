@@ -1,6 +1,3 @@
-require "./lib/file_reader"
-require "./lib/english_to_binary"
-
 class NightWriter
   attr_reader :reader, :output_file, :input_file
 
