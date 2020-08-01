@@ -56,7 +56,7 @@ class TranslatorTest < MiniTest::Test
     @reader = FileReader.new
     night_writer = NightWriter.new
     night_writer.encode_to_braille
-    expected = "0 . \n" + ". . \n" + ". . \n" + "===="
+    expected = "0 . \n" + ". . \n" + ". . \n"
     assert_equal expected, @reader.read('test.txt')
   end
 

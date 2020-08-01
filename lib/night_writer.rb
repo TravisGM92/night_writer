@@ -39,14 +39,13 @@ class NightWriter
     encoded_message = self.encode_to_braille_wrap
     File.open(@output_file, 'w+') do |file|
       file.write encoded_message
-      create_boundary.times{file.write("====")}
       file.close
     end
     @reader.read(@input_file)
   end
 
 end
-
+# 
 # night_writer = NightWriter.new
 # night_writer.created
 # night_writer.encode_to_braille
