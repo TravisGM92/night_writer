@@ -1,4 +1,40 @@
 class Translator
 
+  attr_reader :encoding
+  def initialize
+    @encoding = {}
+  end
+
+  def dictionary
+    @encoding[' '] = ["..", "..", ".."]
+    @encoding['a'] = ["0.", "..", ".."]
+    @encoding['b'] = ["0.", "0.", ".."]
+    @encoding['c'] = ["..", "00", ".."]
+    @encoding['d'] = ["00", ".0", ".."]
+    @encoding['e'] = ["0.", ".0", ".."]
+    @encoding['f'] = ["00", "0.", ".."]
+    @encoding['g'] = ["00", "00", ".."]
+    @encoding['h'] = ["0.", "00", ".."]
+    @encoding['i'] = [".0", "0.", ".."]
+    @encoding['j'] = [".0", "00", ".."]
+    @encoding['k'] = ["0.", "..", "0."]
+    @encoding['l'] = ["0.", "0.", "0."]
+    @encoding['m'] = ["00", "..", "0."]
+    @encoding['n'] = ["00", ".0", "0."]
+    @encoding['o'] = ["0.", ".0", "0."]
+    @encoding['p'] = ["00", "0.", "0."]
+    @encoding['q'] = ["00", "00", "0."]
+    @encoding['r'] = ["0.", "00", "0."]
+    @encoding['s'] = [".0", "0.", "0."]
+    @encoding['t'] = [".0", "00", "0."]
+    @encoding['u'] = ["0.", "..", "00"]
+    @encoding['v'] = ["0.", "0.", "00"]
+    @encoding['w'] = [".0", "00", ".0"]
+    @encoding['x'] = ["00", "..", "00"]
+    @encoding['y'] = ["00", ".0", "00"]
+    @encoding['z'] = ["0.", ".0", "00"]
+    @encoding
+  end
+
 
 end
