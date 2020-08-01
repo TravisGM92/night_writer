@@ -34,4 +34,14 @@ class NightReaderTest < MiniTest::Test
     expected = "0 .\n" + ". .\n" + ". . \n"
     assert_equal expected, @reader.read('test.txt')
   end
+
+  def test_it_can_take_braille_letter_and_change_back_to_english
+    # skip
+    ARGV.replace(['test.txt', 'input.txt'])
+
+    @reader = FileReader.new
+    night_reader = NightReader.new
+
+    assert_equal "a", night_reader.braille_to_english
+  end
 end
