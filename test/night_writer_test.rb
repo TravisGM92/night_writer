@@ -9,6 +9,7 @@ require "./lib/file_reader"
 class NightWrtierTest < MiniTest::Test
 
   def test_it_exists
+    # skip
     # ARGV.replace('message.txt')
     night_writer = NightWriter.new
 
@@ -16,6 +17,7 @@ class NightWrtierTest < MiniTest::Test
   end
 
   def test_it_can_create_a_new_file
+    skip
     ARGV.replace(['message.txt', 'braille.txt'])
 
     @reader = FileReader.new
@@ -26,6 +28,7 @@ class NightWrtierTest < MiniTest::Test
   end
 
   def test_it_can_display_message
+    skip
     ARGV.replace(['message.txt', 'braille.txt'])
 
     @reader = FileReader.new

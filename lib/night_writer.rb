@@ -43,6 +43,6 @@ end
 # puts ARGV.inspect
 # ARGV.replace
 
-night_writer = NightWriter.new
+# night_writer = NightWriter.new
 # night_writer.created
-night_writer.encode_to_braille
+# night_writer.encode_to_braille
