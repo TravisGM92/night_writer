@@ -1,19 +1,15 @@
+require './lib/binary_to_braille'
 class EnglishToBinary
 
-  attr_reader :lower_case, :upper_case, :encoding, :number_of_chars,
-              :message
+  attr_reader :encoding, :number_of_chars,
+              :message, :numbers
   def initialize(message)
-    @lower_case = ('a'..'z').to_a
-    @upper_case = ('A'..'Z').to_a
+    # night_writer = NightWriter.new
     @encoding = {}
     @number_of_chars = number_of_chars
     @message = message
-  end
-
-  def dictionary
-    @lower_case.each do |letter|
-      @encoding[letter] = 0
-    end
+    @numbers = numbers
+    @encoding[' '] = "000000"
     @encoding['a'] = "100000"
     @encoding['b'] = "110000"
     @encoding['c'] = "100100"
@@ -44,11 +40,9 @@ class EnglishToBinary
   end
 
   def encode_to_binary
-    self.dictionary
-    numbers = @number_of_chars = message.chars.length
-    message.chars.map do |letter|
+    @numbers = message.chars.map do |letter|
       encoding[letter]
     end
+    BinaryToBraille.new(@numbers)
   end
-
 end
