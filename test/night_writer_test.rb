@@ -3,27 +3,34 @@ SimpleCov.start
 require "minitest/autorun"
 require "minitest/pride"
 require "./lib/night_writer"
+require "./lib/file_reader"
+
 
 class NightWrtierTest < MiniTest::Test
 
   def test_it_exists
-    ARGV.replace ['message.txt', './lib/braille.txt']
+    # ARGV.replace('message.txt')
     night_writer = NightWriter.new
 
     assert_instance_of NightWriter, night_writer
   end
 
-  def test_it_can_print_to_terminal
-    ARGV.replace ['message.txt', 'braille.txt']
-    night_writer = NightWriter.new
+  def test_it_can_create_a_new_file
+    ARGV.replace(['message.txt', 'braille.txt'])
 
-    assert_equal "Created 'braille.txt' containing 256 characters", night_writer.created
+    @reader = FileReader.new
+    night_writer = NightWriter.new
+    # night_writer.created
+    night_writer.encode_to_braille
+    assert_equal 'travis', @reader.read('braille.txt')
   end
 
-  def test_it_can_take_message_file_and_save_to_braille_file
-    ARGV.replace ['message.txt', 'braille.txt']
+  def test_it_can_display_message
+    ARGV.replace(['message.txt', 'braille.txt'])
+
+    @reader = FileReader.new
     night_writer = NightWriter.new
 
-    assert_equal 256, night_writer.encode_to_braille('message.txt')
+    assert_equal "Created 'message.txt' containing 7 characters", night_writer.created
   end
 end
