@@ -42,7 +42,7 @@ class TranslatorTest < MiniTest::Test
   end
 
   def test_it_exists
-    ARGV.replace(['message.txt', 'braille.txt'])
+    ARGV.replace(['input.txt', 'test.txt'])
     night_writer = NightWriter.new
 
     assert_instance_of NightWriter, night_writer
@@ -50,26 +50,23 @@ class TranslatorTest < MiniTest::Test
 
   def test_it_can_create_a_new_file
     # skip
-    # This test passes with 'a' in braille.txt file
-    ARGV.replace(['message.txt', 'braille.txt'])
+    ARGV.replace(['input.txt', 'test.txt'])
     english_to_braille = Translator.new
     english_to_braille.dictionary
     @reader = FileReader.new
     night_writer = NightWriter.new
-    # night_writer.created
     night_writer.encode_to_braille
-    expected = "0 . \n" + ". . \n" + ". . "
-    assert_equal expected, @reader.read('braille.txt')
+    expected = "0 . \n" + ". . \n" + ". . \n" + "===="
+    assert_equal expected, @reader.read('test.txt')
   end
 
   def test_it_can_display_message
-    # This test passes with 'a' in braille.txt file
-    ARGV.replace(['message.txt', 'braille.txt'])
+    ARGV.replace(['input.txt', 'test.txt'])
 
     @reader = FileReader.new
     night_writer = NightWriter.new
 
-    assert_equal "Created 'message.txt' containing 2 characters", night_writer.created
+    assert_equal "Created 'input.txt' containing 2 characters", night_writer.created
   end
 
 end
