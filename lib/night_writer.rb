@@ -1,6 +1,8 @@
 require './lib/file_reader'
 require './lib/translator'
 
+
+
 class NightWriter
   attr_reader :reader, :output_file, :input_file
 
@@ -13,7 +15,11 @@ class NightWriter
   end
 
   def created
-    "Created '#{@input_file}' containing #{@reader.read(@input_file).length} characters"
+    print "Created '#{@input_file}' containing #{@reader.read(@input_file).length} characters"
+  end
+
+  def create_boundary
+    number = @reader.read('message.txt').chomp.length
   end
 
   def encode_file_to_braille
@@ -23,26 +29,26 @@ class NightWriter
     # braille = encode_to_braille(plain)
   end
 
-  def change_to_braille
+  def encode_to_braille_wrap
+    message = @reader.read('message.txt').chomp
+    wrap = message.scan(/.{1,80}/)
+    braille_wrap = wrap.map do |input|
+      @braille.encode(input)
+    end.join("\n")
   end
 
   def encode_to_braille
-    message = @reader.read('message.txt').chomp
-    encoded_message = @braille.encode(message)
+    encoded_message = self.encode_to_braille_wrap
     File.open(@output_file, 'w+') do |file|
       file.write encoded_message
+      create_boundary.times{file.write("====")}
       file.close
     end
     @reader.read(@input_file)
   end
 
-  def new_file_with_braille
-  end
 end
 
-# puts ARGV.inspect
-# ARGV.replace
-
-# night_writer = NightWriter.new
-# night_writer.created
-# night_writer.encode_to_braille
+night_writer = NightWriter.new
+night_writer.created
+night_writer.encode_to_braille

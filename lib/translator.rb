@@ -46,6 +46,6 @@ class Translator
     third_row = message.chars.map do |letter|
      "#{@encoding[letter][2]} "
     end
-    "#{first_row.join}\n#{second_row.join}\n#{third_row.join}"
+    "#{first_row.join}\n#{second_row.join}\n#{third_row.join}\n"
   end
 end
