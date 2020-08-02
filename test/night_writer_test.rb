@@ -22,7 +22,7 @@ class NightWrtierTest < MiniTest::Test
     @reader = FileReader.new
     night_writer = NightWriter.new
     # night_writer.created
-    night_writer.encode_to_braille
+    night_writer.write_braille_to_new_file
     assert_equal 'a', @reader.read('input.txt').chomp
   end
 
@@ -33,7 +33,7 @@ class NightWrtierTest < MiniTest::Test
     @reader = FileReader.new
     night_writer = NightWriter.new
 
-    assert_equal "Created 'test_file_for_script.txt' containing 4 characters", night_writer.created
+    assert_equal "Created 'test_file_for_script.txt' containing 4 characters", night_writer.created_file_script
   end
 
 end

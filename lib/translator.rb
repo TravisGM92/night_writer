@@ -6,10 +6,9 @@ class Translator
   end
 
   def dictionary
-    # @encoding[' '] = ["..", "..", ".."]
     @encoding['a'] = ["0.", "..", ".."]
     @encoding['b'] = ["0.", "0.", ".."]
-    @encoding['c'] = ["..", "00", ".."]
+    @encoding['c'] = ["00", "..", ".."]
     @encoding['d'] = ["00", ".0", ".."]
     @encoding['e'] = ["0.", ".0", ".."]
     @encoding['f'] = ["00", "0.", ".."]

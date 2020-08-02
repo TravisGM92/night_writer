@@ -25,11 +25,11 @@ class NightReader < NightWriter
     @reader.read(@input_file)
   end
 
-  def created_message_file
+  def created_message_file_script
     "Created '#{@output_file}' containing #{@reader.read(@output_file).length} characters"
   end
 end
 
 # night_reader = NightReader.new
 # night_reader.encode_to_english_file
-# p night_reader.created_message_file
+# p night_reader.created_message_file_script

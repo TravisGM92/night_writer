@@ -55,7 +55,7 @@ class TranslatorTest < MiniTest::Test
     english_to_braille.dictionary
     @reader = FileReader.new
     night_writer = NightWriter.new
-    night_writer.encode_to_braille
+    night_writer.write_braille_to_new_file
     expected = "0. \n" + ".. \n" + ".. \n"
     assert_equal expected, @reader.read('test.txt')
   end
@@ -66,7 +66,7 @@ class TranslatorTest < MiniTest::Test
     @reader = FileReader.new
     night_writer = NightWriter.new
 
-    assert_equal "Created 'input.txt' containing 2 characters", night_writer.created
+    assert_equal "Created 'input.txt' containing 2 characters", night_writer.created_file_script
   end
 
   def test_it_can_translate_special_characters

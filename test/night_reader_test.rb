@@ -21,8 +21,8 @@ class NightReaderTest < MiniTest::Test
 
     @reader = FileReader.new
     night_reader = NightReader.new
-    expected = "Created 'test_file_for_script.txt' containing 4 characters"
-    assert_equal expected, night_reader.created
+    expected = "Created 'test.txt' containing 12 characters"
+    assert_equal expected, night_reader.created_message_file_script
   end
 
   def test_it_can_read_test_file_of_braille
