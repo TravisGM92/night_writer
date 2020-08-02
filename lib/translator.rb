@@ -6,10 +6,9 @@ class Translator
   end
 
   def dictionary
-    @encoding[' '] = ["..", "..", ".."]
     @encoding['a'] = ["0.", "..", ".."]
     @encoding['b'] = ["0.", "0.", ".."]
-    @encoding['c'] = ["..", "00", ".."]
+    @encoding['c'] = ["00", "..", ".."]
     @encoding['d'] = ["00", ".0", ".."]
     @encoding['e'] = ["0.", ".0", ".."]
     @encoding['f'] = ["00", "0.", ".."]
@@ -33,6 +32,17 @@ class Translator
     @encoding['x'] = ["00", "..", "00"]
     @encoding['y'] = ["00", ".0", "00"]
     @encoding['z'] = ["0.", ".0", "00"]
+    @encoding[' '] = ["..", "..", ".."]
+    @encoding['!'] = ["..", "00", "0."]
+    @encoding['.'] = ["..", "00", ".0"]
+    @encoding[','] = ["..", "0.", ".."]
+    @encoding["'"] = ["..", "..", "0."]
+    @encoding["-"] = ["..", "..", "00"]
+    @encoding[":"] = ["..", "00", ".."]
+    @encoding[";"] = ["..", "0.", "0."]
+    @encoding["?"] = ["..", "0.", "00"]
+    @encoding["*"] = ["..", ".0", "0."]
+    @encoding['"'] = ["..", ".0", "00"]
     @encoding
   end
 

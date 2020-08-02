@@ -1,16 +1,9 @@
-require "simplecov"
-SimpleCov.start
-require "minitest/autorun"
-require "minitest/pride"
-require "./lib/night_writer"
-require "./lib/file_reader"
-
+require './test/test_helper.rb'
 
 class NightWrtierTest < MiniTest::Test
 
   def test_it_exists
     # skip
-    # ARGV.replace('message.txt')
     night_writer = NightWriter.new
 
     assert_instance_of NightWriter, night_writer
@@ -23,17 +16,18 @@ class NightWrtierTest < MiniTest::Test
     @reader = FileReader.new
     night_writer = NightWriter.new
     # night_writer.created
-    night_writer.encode_to_braille
-    assert_equal 'a', @reader.read('input.txt').chomp
+    night_writer.write_braille_to_new_file
+    assert_equal 'abc v', @reader.read('input.txt').chomp
   end
 
   def test_it_can_display_message
     # skip
-    ARGV.replace(['message.txt', 'braille.txt'])
+    ARGV.replace(['test_file_for_script.txt', 'braille.txt'])
 
     @reader = FileReader.new
     night_writer = NightWriter.new
 
-    assert_equal "Created 'message.txt' containing 4 characters", night_writer.created
+    assert_equal "Created 'test_file_for_script.txt' containing 4 characters", night_writer.created_file_script
   end
+
 end
