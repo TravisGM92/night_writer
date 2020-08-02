@@ -81,9 +81,12 @@ class TranslatorTest < MiniTest::Test
     assert_equal ["..", "00", ".0"], english_to_braille.encoding['.']
     assert_equal ["..", "0.", ".."], english_to_braille.encoding[',']
     assert_equal ["..", "..", "0."], english_to_braille.encoding["'"]
-
-
-
+    assert_equal ["..", "..", "00"], english_to_braille.encoding["-"]
+    assert_equal ["..", "00", ".."], english_to_braille.encoding[":"]
+    assert_equal ["..", "0.", "0."], english_to_braille.encoding[";"]
+    assert_equal ["..", "0.", "00"], english_to_braille.encoding["?"]
+    assert_equal ["..", ".0", "0."], english_to_braille.encoding["*"]
+    assert_equal ["..", ".0", "00"], english_to_braille.encoding['"']
   end
 
 end
