@@ -36,6 +36,8 @@ class Translator
     @encoding[' '] = ["..", "..", ".."]
     @encoding['!'] = ["..", "00", "0."]
     @encoding['.'] = ["..", "00", ".0"]
+    @encoding[','] = ["..", "0.", ".."]
+
 
 
     @encoding
