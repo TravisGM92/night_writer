@@ -17,11 +17,11 @@ class NightReaderTest < MiniTest::Test
 
   def test_it_can_inherit_from_night_writer
     # skip
-    ARGV.replace(['input.txt', 'test.txt'])
+    ARGV.replace(['test_file_for_script.txt', 'test.txt'])
 
     @reader = FileReader.new
     night_reader = NightReader.new
-    expected = "Created 'input.txt' containing 2 characters"
+    expected = "Created 'test_file_for_script.txt' containing 4 characters"
     assert_equal expected, night_reader.created
   end
 
@@ -31,17 +31,27 @@ class NightReaderTest < MiniTest::Test
 
     @reader = FileReader.new
     night_reader = NightReader.new
-    expected = "0. 0. ..\n" + ".. 0. 00\n" + ".. .. ..\n"
-    assert_equal expected, @reader.read('test.txt')
+    expected = "0. \n" + "..\n" + "..\n"
+    assert_equal expected, @reader.read('test_file_for_braille.txt')
   end
 
   def test_it_can_take_braille_letters_and_change_back_to_english
     # skip
-    ARGV.replace(['test.txt', 'input.txt'])
+    ARGV.replace(['test_file_for_braille.txt', 'input.txt'])
 
     @reader = FileReader.new
     night_reader = NightReader.new
 
-    assert_equal "abc", night_reader.braille_to_english
+    assert_equal "a", night_reader.braille_to_english
+  end
+
+  def test_it_can_translate_words_of_braille_into_english
+    # skip
+    ARGV.replace(['test_file_to_translate_braille_words.txt', 'input.txt'])
+
+    @reader = FileReader.new
+    night_reader = NightReader.new
+
+    assert_equal "abc v", night_reader.braille_to_english
   end
 end
