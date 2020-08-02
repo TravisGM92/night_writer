@@ -34,6 +34,10 @@ class Translator
     @encoding['y'] = ["00", ".0", "00"]
     @encoding['z'] = ["0.", ".0", "00"]
     @encoding[' '] = ["..", "..", ".."]
+    @encoding['!'] = ["..", "00", "0."]
+    @encoding['.'] = ["..", "00", ".0"]
+
+
     @encoding
   end
 

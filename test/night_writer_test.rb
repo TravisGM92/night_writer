@@ -10,7 +10,6 @@ class NightWrtierTest < MiniTest::Test
 
   def test_it_exists
     # skip
-    # ARGV.replace('message.txt')
     night_writer = NightWriter.new
 
     assert_instance_of NightWriter, night_writer
@@ -36,17 +35,5 @@ class NightWrtierTest < MiniTest::Test
 
     assert_equal "Created 'test_file_for_script.txt' containing 4 characters", night_writer.created
   end
-
-  def test_it_can_translate_special_characters
-    # skip
-    ARGV.replace(['test_file_for_special_characters.txt', 'braille.txt'])
-
-    @reader = FileReader.new
-    night_writer = NightWriter.new
-    night_writer.encode_to_braille_wrap
-
-    assert_equal 2, night_writer.encode_file_to_braille
-  end
-
 
 end

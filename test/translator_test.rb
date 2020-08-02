@@ -69,4 +69,17 @@ class TranslatorTest < MiniTest::Test
     assert_equal "Created 'input.txt' containing 2 characters", night_writer.created
   end
 
+  def test_it_can_translate_special_characters
+    # skip
+    english_to_braille = Translator.new
+    english_to_braille.dictionary
+
+    @reader = FileReader.new
+    night_writer = NightWriter.new
+
+    assert_equal ["..", "00", "0."], english_to_braille.encoding['!']
+    assert_equal ["..", "00", ".0"], english_to_braille.encoding['.']
+
+  end
+
 end
