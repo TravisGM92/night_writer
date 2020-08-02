@@ -1,12 +1,4 @@
-require "simplecov"
-SimpleCov.start
-require "minitest/autorun"
-require "minitest/pride"
-require "./lib/night_writer"
-require "./lib/file_reader"
-require "./lib/translator"
-
-
+require './test/test_helper.rb'
 
 class TranslatorTest < MiniTest::Test
 
@@ -56,7 +48,7 @@ class TranslatorTest < MiniTest::Test
     @reader = FileReader.new
     night_writer = NightWriter.new
     night_writer.write_braille_to_new_file
-    expected = "0. \n" + ".. \n" + ".. \n"
+    expected = "0. 0. 00 .. 0. \n" + ".. 0. .. .. 0. \n" + ".. .. .. .. 00 \n"
     assert_equal expected, @reader.read('test.txt')
   end
 
@@ -66,7 +58,7 @@ class TranslatorTest < MiniTest::Test
     @reader = FileReader.new
     night_writer = NightWriter.new
 
-    assert_equal "Created 'input.txt' containing 2 characters", night_writer.created_file_script
+    assert_equal "Created 'input.txt' containing 5 characters", night_writer.created_file_script
   end
 
   def test_it_can_translate_special_characters

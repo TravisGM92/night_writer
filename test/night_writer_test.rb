@@ -1,10 +1,4 @@
-require "simplecov"
-SimpleCov.start
-require "minitest/autorun"
-require "minitest/pride"
-require "./lib/night_writer"
-require "./lib/file_reader"
-
+require './test/test_helper.rb'
 
 class NightWrtierTest < MiniTest::Test
 
@@ -23,7 +17,7 @@ class NightWrtierTest < MiniTest::Test
     night_writer = NightWriter.new
     # night_writer.created
     night_writer.write_braille_to_new_file
-    assert_equal 'a', @reader.read('input.txt').chomp
+    assert_equal 'abc v', @reader.read('input.txt').chomp
   end
 
   def test_it_can_display_message

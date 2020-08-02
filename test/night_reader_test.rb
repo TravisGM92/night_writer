@@ -1,10 +1,4 @@
-require "simplecov"
-SimpleCov.start
-require "minitest/autorun"
-require "minitest/pride"
-require "./lib/night_reader"
-require "./lib/file_reader"
-
+require './test/test_helper.rb'
 
 class NightReaderTest < MiniTest::Test
 
@@ -21,7 +15,7 @@ class NightReaderTest < MiniTest::Test
 
     @reader = FileReader.new
     night_reader = NightReader.new
-    expected = "Created 'test.txt' containing 12 characters"
+    expected = "Created 'test.txt' containing 48 characters"
     assert_equal expected, night_reader.created_message_file_script
   end
 
@@ -53,5 +47,16 @@ class NightReaderTest < MiniTest::Test
     night_reader = NightReader.new
 
     assert_equal "abc v", night_reader.braille_to_english
+  end
+
+  def test_it_can_translate_words_of_braille_into_english_with_file
+    # skip
+    ARGV.replace(['test_file_to_translate_braille_words.txt', 'input.txt'])
+
+    @reader = FileReader.new
+    night_reader = NightReader.new
+    expected = "0. 0. 00 .. 0.\n" + ".. 0. .. .. 0.\n" + ".. .. .. .. 00\n"
+
+    assert_equal expected, night_reader.encode_to_english_file
   end
 end
