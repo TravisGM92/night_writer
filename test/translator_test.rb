@@ -33,7 +33,7 @@ class TranslatorTest < MiniTest::Test
     assert_equal "..", english_to_braille.encoding['a'][2]
   end
 
-  def test_it_exists
+  def test_it_exists2
     ARGV.replace(['input.txt', 'test.txt'])
     night_writer = NightWriter.new
 
@@ -67,7 +67,6 @@ class TranslatorTest < MiniTest::Test
     english_to_braille.dictionary
 
     @reader = FileReader.new
-    night_writer = NightWriter.new
 
     assert_equal ["..", "00", "0."], english_to_braille.encoding['!']
     assert_equal ["..", "00", ".0"], english_to_braille.encoding['.']

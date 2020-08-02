@@ -24,7 +24,6 @@ class NightReaderTest < MiniTest::Test
     ARGV.replace(['input.txt', 'test.txt'])
 
     @reader = FileReader.new
-    night_reader = NightReader.new
     expected = "0. \n" + "..\n" + "..\n"
     assert_equal expected, @reader.read('test_file_for_braille.txt')
   end
