@@ -31,7 +31,7 @@ class NightReaderTest < MiniTest::Test
 
     @reader = FileReader.new
     night_reader = NightReader.new
-    expected = "0 .\n" + ". .\n" + ". . \n"
+    expected = "0. 0. ..\n" + ".. 0. 00\n" + ".. .. ..\n"
     assert_equal expected, @reader.read('test.txt')
   end
 
@@ -42,6 +42,6 @@ class NightReaderTest < MiniTest::Test
     @reader = FileReader.new
     night_reader = NightReader.new
 
-    assert_equal "a", night_reader.braille_to_english
+    assert_equal "abc", night_reader.braille_to_english
   end
 end

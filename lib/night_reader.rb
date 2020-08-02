@@ -3,11 +3,17 @@ require './lib/night_writer'
 class NightReader < NightWriter
 
   def braille_to_english
-    message = @reader.read(@input_file).chomp
-    # message[10]
-    @braille.encoding.select do |keys, values|
-      values[0] == message[0..2] && values[1] == message[4..6] && values[2] == message[8..10]
-    end.keys.join
+    array = []
+    message = @reader.read(@input_file).chomp.split("\n").map{ |ele| ele.split(" ")}
+    separated_braille = message.transpose
+    @braille.encoding.each do |char, braille|
+      separated_braille.each do |ele|
+        if ele[0] == braille[0] && ele[1] == braille[1] && ele[2] == braille[2]
+          array << char
+        end
+      end
+    end
+    array.join
   end
 end
 
