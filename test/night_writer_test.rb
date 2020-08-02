@@ -17,23 +17,23 @@ class NightWrtierTest < MiniTest::Test
   end
 
   def test_it_can_create_a_new_file
-    skip
-    ARGV.replace(['message.txt', 'braille.txt'])
+    # skip
+    ARGV.replace(['input.txt', 'test.txt'])
 
     @reader = FileReader.new
     night_writer = NightWriter.new
     # night_writer.created
     night_writer.encode_to_braille
-    assert_equal 'travis', @reader.read('braille.txt')
+    assert_equal 'a', @reader.read('input.txt').chomp
   end
 
   def test_it_can_display_message
-    skip
+    # skip
     ARGV.replace(['message.txt', 'braille.txt'])
 
     @reader = FileReader.new
     night_writer = NightWriter.new
 
-    assert_equal "Created 'message.txt' containing 7 characters", night_writer.created
+    assert_equal "Created 'message.txt' containing 4 characters", night_writer.created
   end
 end

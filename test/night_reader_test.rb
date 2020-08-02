@@ -35,7 +35,7 @@ class NightReaderTest < MiniTest::Test
     assert_equal expected, @reader.read('test.txt')
   end
 
-  def test_it_can_take_braille_letter_and_change_back_to_english
+  def test_it_can_take_braille_letters_and_change_back_to_english
     # skip
     ARGV.replace(['test.txt', 'input.txt'])
 
