@@ -4,6 +4,7 @@ class NightReader < NightWriter
 
   def braille_to_english
     array = []
+    array1 = []
     message = @reader.read(@input_file).chomp.split("\n").map{ |ele| ele.split(" ")}
     separated_braille = message.transpose
     separated_braille.each do |ele|
@@ -13,9 +14,17 @@ class NightReader < NightWriter
         end
       end
     end
-    array.join
+    array.each_with_index do |ele, index|
+      if ele == "upper case"
+        array1 << array[index + 1].upcase
+        array.delete(ele)
+      else
+        array1 << ele
+      end
+    end
+    array1.join
   end
-
+  
   def encode_to_english_file
     english_message = self.braille_to_english
     File.open(@output_file, 'w+') do |file|

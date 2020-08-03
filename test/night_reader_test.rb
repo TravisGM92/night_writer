@@ -58,4 +58,14 @@ class NightReaderTest < MiniTest::Test
 
     assert_equal expected, night_reader.encode_to_english_file
   end
+
+  def test_it_can_translate_words_of_braille_into_english
+    # skip
+    ARGV.replace(['capital_braille_test.txt'])
+
+    @reader = FileReader.new
+    night_reader = NightReader.new
+
+    assert_equal "Aa v", night_reader.braille_to_english
+  end
 end
