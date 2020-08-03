@@ -33,7 +33,7 @@ class TranslatorTest < MiniTest::Test
     assert_equal "..", english_to_braille.encoding['a'][2]
   end
 
-  def test_it_exists
+  def test_it_exists2
     ARGV.replace(['input.txt', 'test.txt'])
     night_writer = NightWriter.new
 
@@ -67,7 +67,6 @@ class TranslatorTest < MiniTest::Test
     english_to_braille.dictionary
 
     @reader = FileReader.new
-    night_writer = NightWriter.new
 
     assert_equal ["..", "00", "0."], english_to_braille.encoding['!']
     assert_equal ["..", "00", ".0"], english_to_braille.encoding['.']
@@ -79,6 +78,29 @@ class TranslatorTest < MiniTest::Test
     assert_equal ["..", "0.", "00"], english_to_braille.encoding["?"]
     assert_equal ["..", ".0", "0."], english_to_braille.encoding["*"]
     assert_equal ["..", ".0", "00"], english_to_braille.encoding['"']
+  end
+
+  def test_it_can_translate_capitalization
+    # skip
+    english_to_braille = Translator.new
+    english_to_braille.upper_case_dicitonary
+
+    @reader = FileReader.new
+
+    assert_equal ["..", "..", ".0"], english_to_braille.upper_case_letters['A']
+  end
+
+  def test_it_can_translate_capitalization_to_new_file
+    # skip
+    ARGV.replace(['test_capitalization.txt', 'output_test_file_for_capitalization.txt'])
+    english_to_braille = Translator.new
+    english_to_braille.dictionary
+    english_to_braille.upper_case_dicitonary
+    @reader = FileReader.new
+    night_writer = NightWriter.new
+    night_writer.write_braille_to_new_file
+    expected = ".. 0. \n" + ".. .. \n" + ".0 .. \n"
+    assert_equal expected, @reader.read('output_test_file_for_capitalization.txt')
   end
 
 end
