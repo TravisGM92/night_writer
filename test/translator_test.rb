@@ -88,7 +88,18 @@ class TranslatorTest < MiniTest::Test
     @reader = FileReader.new
 
     assert_equal [["..", "..", ".0"], ["0.", "..", ".."]], english_to_braille.upper_case_letters['A']
+  end
 
+  def test_it_can_translate_capitalization_to_new_file
+    # skip
+    ARGV.replace(['test_capitalization.txt', 'output_test_file_for_capitalization.txt'])
+    english_to_braille = Translator.new
+    english_to_braille.dictionary
+    @reader = FileReader.new
+    night_writer = NightWriter.new
+    night_writer.write_braille_to_new_file
+    expected = "0. 0. 00 .. 0. \n" + ".. 0. .. .. 0. \n" + ".. .. .. .. 00 \n"
+    assert_equal expected, @reader.read('output_test_file_for_capitalization.txt')
   end
 
 end
