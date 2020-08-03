@@ -103,4 +103,15 @@ class TranslatorTest < MiniTest::Test
     assert_equal expected, @reader.read('output_test_file_for_capitalization.txt')
   end
 
+  def test_it_can_use_contractions
+    # skip
+
+    english_to_braille = Translator.new
+    english_to_braille.dictionary
+    english_to_braille.upper_case_dicitonary
+    @reader = FileReader.new
+
+    assert_equal 2, english_to_braille.encode('but')
+  end
+
 end

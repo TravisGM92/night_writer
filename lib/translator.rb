@@ -78,8 +78,8 @@ class Translator
     @upper_case_letters['Z'] = ["..", "..", ".0"]
   end
 
-  def encode(message)
 
+  def encode(message)
     first_row = message.chars.map do |letter|
       if @upper_case.include?(letter)
        "#{@encoding['upper case'][0]} #{@encoding['a'][0]} "
