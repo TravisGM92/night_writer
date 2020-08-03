@@ -49,36 +49,6 @@ class Translator
     @encoding
   end
 
-  def upper_case_dicitonary
-    @upper_case_letters['A'] = ["..", "..", ".0"]
-    @upper_case_letters['B'] = ["..", "..", ".0"]
-    @upper_case_letters['C'] = ["..", "..", ".0"]
-    @upper_case_letters['D'] = ["..", "..", ".0"]
-    @upper_case_letters['E'] = ["..", "..", ".0"]
-    @upper_case_letters['F'] = ["..", "..", ".0"]
-    @upper_case_letters['G'] = ["..", "..", ".0"]
-    @upper_case_letters['H'] = ["..", "..", ".0"]
-    @upper_case_letters['I'] = ["..", "..", ".0"]
-    @upper_case_letters['J'] = ["..", "..", ".0"]
-    @upper_case_letters['K'] = ["..", "..", ".0"]
-    @upper_case_letters['L'] = ["..", "..", ".0"]
-    @upper_case_letters['M'] = ["..", "..", ".0"]
-    @upper_case_letters['N'] = ["..", "..", ".0"]
-    @upper_case_letters['O'] = ["..", "..", ".0"]
-    @upper_case_letters['P'] = ["..", "..", ".0"]
-    @upper_case_letters['Q'] = ["..", "..", ".0"]
-    @upper_case_letters['R'] = ["..", "..", ".0"]
-    @upper_case_letters['S'] = ["..", "..", ".0"]
-    @upper_case_letters['T'] = ["..", "..", ".0"]
-    @upper_case_letters['U'] = ["..", "..", ".0"]
-    @upper_case_letters['V'] = ["..", "..", ".0"]
-    @upper_case_letters['W'] = ["..", "..", ".0"]
-    @upper_case_letters['X'] = ["..", "..", ".0"]
-    @upper_case_letters['Y'] = ["..", "..", ".0"]
-    @upper_case_letters['Z'] = ["..", "..", ".0"]
-  end
-
-
   def encode(message)
     first_row = message.chars.map do |letter|
       if @upper_case.include?(letter)

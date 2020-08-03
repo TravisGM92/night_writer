@@ -83,11 +83,13 @@ class TranslatorTest < MiniTest::Test
   def test_it_can_translate_capitalization
     # skip
     english_to_braille = Translator.new
-    english_to_braille.upper_case_dicitonary
+    english_to_braille.dictionary
 
     @reader = FileReader.new
 
-    assert_equal ["..", "..", ".0"], english_to_braille.upper_case_letters['A']
+    expected = ".. 0. \n" + ".. .. \n" + ".0 .. \n"
+
+    assert_equal expected, english_to_braille.encode('A')
   end
 
   def test_it_can_translate_capitalization_to_new_file
@@ -95,7 +97,7 @@ class TranslatorTest < MiniTest::Test
     ARGV.replace(['test_capitalization.txt', 'output_test_file_for_capitalization.txt'])
     english_to_braille = Translator.new
     english_to_braille.dictionary
-    english_to_braille.upper_case_dicitonary
+
     @reader = FileReader.new
     night_writer = NightWriter.new
     night_writer.write_braille_to_new_file
@@ -104,11 +106,10 @@ class TranslatorTest < MiniTest::Test
   end
 
   def test_it_can_use_contractions
-    # skip
+    skip
 
     english_to_braille = Translator.new
     english_to_braille.dictionary
-    english_to_braille.upper_case_dicitonary
     @reader = FileReader.new
 
     assert_equal 2, english_to_braille.encode('but')
