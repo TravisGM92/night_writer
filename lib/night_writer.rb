@@ -19,7 +19,7 @@ class NightWriter
   def encode_to_braille_wrap
     message = @reader.read(@input_file).chomp
     wrap = message.scan(/.{1,80}/)
-    braille_wrap = wrap.map do |input|
+    wrap.map do |input|
       @braille.encode(input)
     end.join("\n")
   end
@@ -36,5 +36,5 @@ class NightWriter
 end
 #
 # night_writer = NightWriter.new
-# night_writer.created_file_script
+# puts night_writer.created_file_script
 # night_writer.write_braille_to_new_file

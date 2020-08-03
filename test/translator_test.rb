@@ -106,13 +106,15 @@ class TranslatorTest < MiniTest::Test
   end
 
   def test_it_can_use_contractions
-    skip
-
+    # skip
     english_to_braille = Translator.new
     english_to_braille.dictionary
-    @reader = FileReader.new
+    english_to_braille.contraction_dictionary
 
-    assert_equal 2, english_to_braille.encode('but')
+    @reader = FileReader.new
+    expected = "..0...\n" + "..0...\n" + "......\n"
+
+    assert_equal expected, english_to_braille.contractions('but')
   end
 
 end

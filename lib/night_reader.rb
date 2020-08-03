@@ -24,7 +24,7 @@ class NightReader < NightWriter
     end
     array1.join
   end
-  
+
   def encode_to_english_file
     english_message = self.braille_to_english
     File.open(@output_file, 'w+') do |file|
@@ -41,4 +41,4 @@ end
 
 # night_reader = NightReader.new
 # night_reader.encode_to_english_file
-# p night_reader.created_message_file_script
+# puts night_reader.created_message_file_script
