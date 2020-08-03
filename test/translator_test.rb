@@ -80,4 +80,15 @@ class TranslatorTest < MiniTest::Test
     assert_equal ["..", ".0", "00"], english_to_braille.encoding['"']
   end
 
+  def test_it_can_translate_capitalization
+    # skip
+    english_to_braille = Translator.new
+    english_to_braille.upper_case_dicitonary
+
+    @reader = FileReader.new
+
+    assert_equal [["..", "..", ".0"], ["0.", "..", ".."]], english_to_braille.upper_case_letters['A']
+
+  end
+
 end

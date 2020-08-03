@@ -1,8 +1,10 @@
 class Translator
 
-  attr_reader :encoding
+  attr_reader :encoding, :upper_case, :upper_case_letters
   def initialize
     @encoding = {}
+    @upper_case = ('A'..'Z').to_a
+    @upper_case_letters = {}
   end
 
   def dictionary
@@ -46,7 +48,37 @@ class Translator
     @encoding
   end
 
+  def upper_case_dicitonary
+    @upper_case_letters['A'] = [["..", "..", ".0"], ["0.", "..", ".."]]
+    @upper_case_letters['B'] = ["0.", "0.", ".."]
+    @upper_case_letters['C'] = ["00", "..", ".."]
+    @upper_case_letters['D'] = ["00", ".0", ".."]
+    @upper_case_letters['E'] = ["0.", ".0", ".."]
+    @upper_case_letters['F'] = ["00", "0.", ".."]
+    @upper_case_letters['G'] = ["00", "00", ".."]
+    @upper_case_letters['H'] = ["0.", "00", ".."]
+    @upper_case_letters['I'] = [".0", "0.", ".."]
+    @upper_case_letters['J'] = [".0", "00", ".."]
+    @upper_case_letters['K'] = ["0.", "..", "0."]
+    @upper_case_letters['L'] = ["0.", "0.", "0."]
+    @upper_case_letters['M'] = ["00", "..", "0."]
+    @upper_case_letters['N'] = ["00", ".0", "0."]
+    @upper_case_letters['O'] = ["0.", ".0", "0."]
+    @upper_case_letters['P'] = ["00", "0.", "0."]
+    @upper_case_letters['Q'] = ["00", "00", "0."]
+    @upper_case_letters['R'] = ["0.", "00", "0."]
+    @upper_case_letters['S'] = [".0", "0.", "0."]
+    @upper_case_letters['T'] = [".0", "00", "0."]
+    @upper_case_letters['U'] = ["0.", "..", "00"]
+    @upper_case_letters['V'] = ["0.", "0.", "00"]
+    @upper_case_letters['W'] = [".0", "00", ".0"]
+    @upper_case_letters['X'] = ["00", "..", "00"]
+    @upper_case_letters['Y'] = ["00", ".0", "00"]
+    @upper_case_letters['Z'] = ["0.", ".0", "00"]
+  end
+
   def encode(message)
+
     first_row = message.chars.map do |letter|
        "#{@encoding[letter][0]} "
     end
