@@ -30,4 +30,14 @@ class NightWrtierTest < MiniTest::Test
     assert_equal "Created 'test_file_for_script.txt' containing 4 characters", night_writer.created_file_script
   end
 
+  # def test_it_can_use_contraction_method
+  #   skip
+  #   ARGV.replace(['contraction_test.txt', 'braille_con.txt'])
+  #
+  #   @reader = FileReader.new
+  #   night_writer = NightWriter.new
+  #   night_writer.write_braille_to_new_file
+  #
+  #   assert_equal 2, @reader.read('braille_con.txt')
+  # end
 end
