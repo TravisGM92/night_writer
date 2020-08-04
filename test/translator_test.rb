@@ -117,4 +117,16 @@ class TranslatorTest < MiniTest::Test
     assert_equal expected, english_to_braille.contractions('but')
   end
 
+  def test_it_can_abort_contraction_method_and_go_to_encode
+    # skip
+    english_to_braille = Translator.new
+    english_to_braille.dictionary
+    english_to_braille.contraction_dictionary
+
+    @reader = FileReader.new
+    expected = "0. \n" + ".. \n" + ".. \n"
+
+    assert_equal expected, english_to_braille.contractions('a')
+  end
+
 end

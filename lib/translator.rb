@@ -62,7 +62,7 @@ class Translator
       third_row = "#{@encoding[" "][2]}#{@contraction[message][2]}#{@encoding[" "][2]}"
       "#{first_row}\n#{second_row}\n#{third_row}\n"
     else
-      "no"
+      self.encode(message)
     end
   end
 
